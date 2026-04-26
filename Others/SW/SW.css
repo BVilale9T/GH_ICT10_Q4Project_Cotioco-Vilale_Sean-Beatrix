@@ -1,0 +1,34 @@
+/* Body */
+body {
+    background-color: rgb(234, 206, 180); /* warm peach background */
+    text-align: center;
+}
+/* Centered card where users type in classmate info */
+.form {
+    max-width: 400px;
+    margin: 100px auto; /* centered horizontally, pushed down from top */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle drop shadow */
+}
+/* Wider card that shows the classmate list results */
+.final {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+Nav{
+    background-color: #F8B195; /* salmon/coral color */
+    margin-bottom: 20px;
+}
+main{
+    background-color: #F2E9D0; /* light cream */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+}

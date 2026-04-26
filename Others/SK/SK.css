@@ -1,0 +1,53 @@
+/* Global Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(234, 206, 180); /* warm peach background */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Input Form Box */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 50px auto; /* centered horizontally */
+}
+
+/* Absence Number Input */
+#Absent {
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+/* Generate Graph Button */
+#Calculate {
+    background-color: #4CAF50; /* green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Navigation Bar */
+/* Note: lowercase "nav" — CSS tag selectors are case-sensitive */
+nav {
+    background-color: #F8B195; /* salmon/coral */
+    margin-bottom: 20px;
+}
+
+/* Main Content Area */
+main {
+    background-color: #F2E9D0; /* light cream */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+}

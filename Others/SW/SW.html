@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS framework -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="SW.css">
+        <!-- icon -->
+        <link rel="icon" type="image/x-icon" href="../../Img/Icon.png">
+
+        <!-- PyScript: enables Python in the browser -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css" />
+        <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+
+        <title>Seatwork #2</title>
+    </head>
+    <body>
+        <!--Navigation Bar-->
+        <header>
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <!-- Active page: Classmate List -->
+                                <a class="nav-link active" href="#"><b>Classmate List</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../SK/SK.html">Attendance Tracker</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Project/Project.html">Photos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Users fill this in to add a new classmate -->
+        <div class="form mb-3">
+            <h2>Classmate List</h2>
+            <!-- Input fields bound to Python via their IDs -->
+            <input type="text" class="form-control mb-2" placeholder="Name"             id="Name" />
+            <input type="text" class="form-control mb-2" placeholder="Section"          id="Section" />
+            <input type="text" class="form-control mb-2" placeholder="Favorite Subject" id="FavoriteSubject" />
+            <!-- py-click calls the matching Python function in SW.py -->
+            <button class="btn btn-primary me-2" py-click="add_classmate">Add Classmate</button>
+            <button class="btn btn-secondary"    py-click="show_list">Show List</button>
+        </div>
+
+        <!-- Python writes classmate entries into #output -->
+        <div class="final">
+            <h2>Classmate List</h2>
+            <div id="output" class="mt-3"></div>
+        </div>
+
+        <!-- Load the Python logic for this page -->
+        <py-script src="SW.py"></py-script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(234, 206, 180); /* warm peach background */
+}
+Nav{
+    background-color: #F8B195; /* salmon/coral color for the navbar */
+    margin-bottom: 20px;
+}
+main{
+    background-color: #F2E9D0; /* light cream background for content */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+}
+.card-body{
+    background-color: #BB5A5A;
+    color: white;
+    border-radius: 10px;
+}
