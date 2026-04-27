@@ -1,40 +1,45 @@
-from pyscript import document
+from pyscript import document, display
 import numpy as np
-import matplotlib
-matplotlib.use("Agg")  # Use non-interactive backend (required for browser/PyScript)
+import logging
+logging.getLogger('matplotlib').setLevel(logging.ERROR)
 import matplotlib.pyplot as plt
 
-# Generate Graph Button Handler
+# Preload to avoid font cache message
+plt.figure()
+plt.plot([0, 1], [0, 1])
+plt.close()
+
+# Store data globally
+all_months = []
+all_absences = []
+
 def Calculate(event):
-    """Reads the absence count and month, then generates and displays a line chart."""
-
-    # Clear any previously generated output
-    document.getElementById("output").innerHTML = ""
-
-    # Get values from the input fields
     abs_value = document.getElementById("Absent").value
     day_value = document.getElementById("Months").value
 
-    # Validate: absence field must not be empty
     if not abs_value:
         document.getElementById("output").innerHTML = '<p style="color:red;">Please enter a number.</p>'
         return
 
-    # Wrap values in numpy arrays (required for matplotlib plotting)
-    missing = np.array([int(abs_value)])  # number of absences
-    days    = np.array([str(day_value)])  # selected month label
+    # Save data
+    all_months.append(day_value)
+    all_absences.append(int(abs_value))
 
-    # Build the line chart
-    plt.plot(days, missing, marker="o")
+    # Convert to NumPy array
+    converted_absences = np.array(all_absences)
+
+    # Clear previous plot
+    plt.clf()
+
+    # Create graph
+    plt.plot(all_months, converted_absences, marker='o')
     plt.title("Topaz Absents")
     plt.xlabel("Month")
     plt.ylabel("Absences")
+    plt.grid()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
 
-    # Save chart to a file, then close to free memory
-    plt.savefig("chart.png")
-    plt.close()
-
-    # Inject the saved chart image into the output div
-    document.getElementById("output").innerHTML = (
-        '<img src="chart.png" style="max-width:100%;">'
-    )
+    # Clear output then display the figure into it
+    document.getElementById("output").innerHTML = ""
+    display(plt.gcf(), target="output", append=False)
